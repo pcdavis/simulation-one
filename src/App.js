@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import routes from './routes'
+import logo from './assets/logo.png'
+
+
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      header: 'SHELFIE'
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+    <div className="App">
+
+        <div className="wrapper">
+
+            <nav className='nav'>
+                <div className='link-wrap'>
+                    <Link className='links logo' to='/'> <img alt='logo' src={logo} /> </Link>
+                </div>
+                <div className="header-text">{this.state.header}</div> 
+              </nav>
+
+        
+
+              <div className="main-view">
+                { routes }
+              </div>
+        </div> 
+    </div>
     );
   }
 }
